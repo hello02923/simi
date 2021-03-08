@@ -1,0 +1,5 @@
+<!doctype html>
+<title>welcome</title>
+{% if current_user.is_authenticated %}
+  <h1>Hello 登入成功{{ current_user.get_id() }}!</h1>
+{% endif %}
