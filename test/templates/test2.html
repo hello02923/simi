@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+	<style type="text/css">
+				*{
+					margin: 0;
+					padding: 0;
+					box-sizing: border-box;
+				}
+				body,
+				input {
+				  font-family: "Poppins", sans-serif;
+				}
+				.container{
+					height: 100vh;
+					width: 100% !important;
+					display: grid;
+					grid-template-columns: repeat(3,1fr);
+				}
+				.info_container{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+					grid-column-start: 1;
+					grid-column-end: 3;
+				}
+				.card2 .img_container{
+					grid-column-start: 1;
+					grid-column-end: 2;
+				}
+				.card4 .img_container{
+					grid-column-start: 1;
+					grid-column-end: 2;
+				}
+				.card2 .info_container{
+					grid-column-start: 2;
+					grid-column-end: 4;
+				}
+				.card4 .info_container{
+					grid-column-start: 2;
+					grid-column-end: 4;
+				}
+				.card2 .img_container .img{
+ 					background-position: right;
+				}
+				.card4 .img_container .img{
+ 					background-position: right;
+				}
+				.title{
+					font-size: 40px;
+					font-weight: bold;
+					width: 100%;
+					height: 60px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+				.title_des{
+					padding: 1vw 5vw;
+					max-width: 500px;
+				}
+				.owl-theme .owl-dots{
+					height: 5vh;
+					margin-top: 0 !important;
+					position: absolute;
+					/* top: 10px; */
+					bottom: 0px;
+					left: 50%;
+					transform: translate(-50%, 0px);
+				}
+				.owl-theme .owl-dots .owl-dot span{
+					width: 50px;
+				}
+				.img_container{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-top: 5vw;
+					width: 100%;
+				}
+				.img{
+					background-image: url(./../static/img/system.png);
+					background-repeat: no-repeat;
+					background-size: contain;
+					width: 100%;
+					height: 250px;
+					margin-top: 30vh;
+				}
+				.btn {
+					width: 120px;
+				    background-color: #5995fd;
+				    border: none;
+				    outline: none;
+				    height: 50px;
+				    border-radius: 5px;
+				    color: #fff;
+				    text-transform: uppercase;
+				    font-weight: 600;
+				    margin: 20px 0;
+				    cursor: pointer;
+				    font-size: 1.2rem;
+				    display: flex;
+				    justify-content: center;
+				    align-items: center;
+				}
+
+				.btn:hover {
+				  background-color: #4d84e2;
+				}
+
+				.card1{
+					background-color: #f7c6c6;
+				}
+				.card2{
+					background-color: #f9f4cc;
+				}
+				.card3{
+					background-color: #bbf5d1;
+				}
+				.card4{
+					background-color: #91e4ee;
+				}
+		/*		.owl-wrapper{
+					height: 100vh;
+					width: 100%;
+				}*/
+			</style>
+</head>
+<body>
+	<div class="container card1">
+		<div class="info_container">
+			<div class="title"> 時間序列分析 </div>
+			<div class="title_des">
+				時間序列分析的介紹時間序列分析的介紹時間序列分析的介紹時間序列分析的介紹時間序列分析的介紹時間序列分析的介紹時間序列分析的介紹
+			</div>
+			<div class="btn">前往圖表 > </div>
+		</div>
+		<div class="img_container">
+			<div class="img1 img"></div>
+		</div>
+  	</div>
+ 	<div class="container card2">
+ 		<div class="img_container">
+ 			<div class="img2 img"></div>
+ 		</div>
+ 		<div class="info_container">
+ 			<div class="title"> 情感分析 </div>
+ 			<div class="title_des">
+ 				時間情感分析的介紹時間情感分析的介紹時間情感分析的介紹時間情感分析的介紹時間情感分析的介紹時間情感分析的介紹時間情感分析的介紹
+ 			</div>
+ 			<div class="btn">前往圖表 > </div>
+ 		</div>
+  	</div>
+  	<div class="container card3">
+  		<div class="info_container">
+  			<div class="title"> 字詞頻率分析 </div>
+  			<div class="title_des">字詞頻率分析的介紹字詞頻率分析的介紹字詞頻率分析的介紹字詞頻率分析的介紹字詞頻率分析的介紹字詞頻率分析的介紹字詞頻率分析的介紹字詞頻率分析的介紹</div>
+  			<div class="btn">前往圖表 > </div>
+  		</div>
+  		<div class="img_container">
+  			<div class="img3 img"></div>
+  		</div>
+  	</div>
+  	<div class="container card4">
+  		<div class="img_container">
+  			<div class="img4 img"></div>
+  		</div>
+  		<div class="info_container">
+  			<div class="title"> 關鍵字權重分析 </div>
+  			<div class="title_des">關鍵字權重分析的介紹關鍵字權重分析的介紹關鍵字權重分析的介紹關鍵字權重分析的介紹關鍵字權重分析的介紹關鍵字權重分析的介紹關鍵字權重分析的介紹</div>
+  			<div class="btn">前往圖表 > </div>
+  		</div>
+  	</div>
+</body>
+</html>
