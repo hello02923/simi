@@ -9,26 +9,52 @@
 	<link rel="stylesheet" type="text/css" href="./../static/css/product-page.css">
 </head>
 <body>
-<nav>
-	<div class="logo_container">
-		<div class="logo_img"></div>
-		<div class="logo_text">
-			<p>圖靈洞察</p>
-			<p>Turing Insight</p>
+	<nav class="navbar smart-scroll">
+		<div class="nav_container">
+			<div class="logo_container" onclick="location.href='index.html'">
+				<div class="logo_img"></div>
+				<div class="logo_text">
+					<p>圖靈洞察</p>
+					<p>Turing Insight</p>
+				</div>
+			</div>
+			<!-- rwd -->
+			<!-- <div class="burger"> -->
+				<div class="menu-btn">
+				  <div class="menu-btn__burger"></div>
+				</div>
+			<!-- </div> -->
+			<div class="nav_list">
+				<ul>
+					<li><a href="#landing">回頂部</a></li>
+					<li><a href="#service">服務介紹</a></li>
+					<li><a href="#contact">聯絡我們</a></li>
+					<li class="login_btn_container"><div class="btn solid">LOGIN</div></li>
+				</ul>
+			</div>
 		</div>
-	</div>
-</div>
-</nav>
-<section class="wrapper landing_page"></section>
+		<div class="menu_list">
+			<ul>
+				<li><a href="#product">Product</a></li>
+				<li><a href="#research_project">Research Project</a></li>
+				<li><a href="#honors_and_awards">Honor & Award</a></li>
+				<li><a href="#team">Team</a></li>
+				<li class="ins_icon" onclick="window.open('https://www.instagram.com/turing_insight_lab/')">
+					<div class="ins_icon_black"></div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+<section class="wrapper landing_page" id="landing"></section>
 <div class="landing_container">
 	<p class="product_title">SiMi社群洞察平台</p>
 	<p class="product_des">
 		SiMi社群洞察平台提供三大服務，以人工智慧、機器學習技術為基礎，透過數據抓取清晰掌握市場脈動，成為社群精準行銷最佳利器，簡單介面輕鬆上手，協助顧客找到對的目標客群，透過數據的幫助，讓你永遠跟上市場腳步，走在市場行業的前端，做到精準行銷。
 	</p>
-	<a class="learn_more_link" href="#card2"><div class="learn_more_btn btn">LEARN MORE</div></a>
+	<a class="learn_more_link" href="#service"><div class="learn_more_btn btn">LEARN MORE</div></a>
 	<div class="landing_page_img"></div>
 </div>
-<section class="wrapper" id="card2">
+<section class="wrapper" id="service">
 	<div class="owl-wrapper">
 		<div class="owl-carousel owl-theme">
 			<div class="container card1">
@@ -68,7 +94,7 @@
 		</div>
 	</div>
 </section>
-<section class="wrapper contact_container">
+<section class="wrapper contact_container" id="contact">
 	<div class="contact_bg"></div>
 	<div class="wrap-contact100">
 		<div class="contact100-form-title" style="background-image: url(./../static/img/bg-01.jpg);">
@@ -77,7 +103,7 @@
 			</span>
 
 			<span class="contact100-form-title-2">
-				Feel free to drop us a line below!
+				Feel free to drop us an information below!
 			</span>
 		</div>
 		<form class="contact100-form validate-form">
@@ -117,55 +143,6 @@
 </section>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-	<script type="text/javascript">
-		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-		    anchor.addEventListener('click', function (e) {
-		        e.preventDefault();
-
-		        document.querySelector(this.getAttribute('href')).scrollIntoView({
-		            behavior: 'smooth'
-		        });
-		    });
-		});
-
-		 // set owl-carousel width equals to owl-wrapper width
-		 function owlWrapperWidth( selector ) {
-		   $(selector).each(function(){
-		     $(this).find('.owl-carousel').outerWidth( $(this).closest( selector ).innerWidth() );
-		   });
-		 }
-
-		 // trigger on start and resize
-		 owlWrapperWidth( '.owl-wrapper' );
-		 $( window ).resize(function() {
-		   owlWrapperWidth( $('.owl-wrapper') );
-		 });
-
-		// then trigger owl Carousel
-		$('.owl-carousel').owlCarousel({
-		      loop: true,
-		      margin: 0,
-		      nav: false,
-		      autoplay:true,
-		      autoplayTimeout:10000,
-		      autoplaySpeed:1000,
-		      autoplayHoverPause: true,
-		      // slideTransition: 'linear',
-		      autoplayHoverPause:true,
-		      responsive:{
-		          0:{
-		              items:1
-		          },
-		          600:{
-		              items:1
-		          },
-		          1000:{
-		              items:1
-		          }
-		      }
-		  });
-
-
-	</script>
+	<script type="text/javascript" src="./../static/js/product-page.js"></script>
 </body>
 </html>
