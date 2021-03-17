@@ -1,14 +1,42 @@
-var chart2_1 = echarts.init(document.getElementById('card2_main1'));
-var option2_1 = {
+var chart4 = echarts.init(document.getElementById('main4'));
+var word_data = {
+    "粉絲團": "1",
+    "葡萄酒": "1",
+    "喝": "1",
+    "購買": "1",
+    "直接": "1",
+    "請": "1",
+    "香": "1",
+    "夢幻": "1",
+    "不甜": "1",
+    "完全": "1",
+    "微酸": "1",
+    "濃郁": "1",
+    "香甜": "1",
+    "酒精味": "1",
+    "很足": "1",
+    "香氣": "1",
+    "時": "1",
+    "開瓶": "1",
+    "很漂亮": "1",
+    "濃濃": "1"
+}
+var new_word_data = []
+for (var key in word_data){
+    new_word_data.push({name: key,value: parseInt(word_data[key])})
+}
+
+console.log(new_word_data)
+var option4 = {
     tooltip: {},
     series: [ {
         type: 'wordCloud',
-        gridSize: 10,
+        gridSize: 1,
         sizeRange: [12, 50],
         rotationRange: [-90, 90],
         shape: 'pentagon',
-        width: 600,
-        height: 400,
+        width: 400,
+        height: 200,
         drawOutOfBound: true,
         textStyle: {
             color: function () {
@@ -25,116 +53,10 @@ var option2_1 = {
                 shadowColor: '#333'
             }
         },
-        data: [
-            {
-                name: '社群行銷',
-                rotationRange: [-90, 90],
-                value: 10000,
-                textStyle: {
-                    color: 'black'
-                },
-                emphasis: {
-                    textStyle: {
-                        color: 'red'
-                    }
-                }
-            },
-            {
-                name: '國家',
-                value: 6181
-            },
-            {
-                name: '企業',
-                value: 4386
-            },
-            {
-                name: '領先',
-                value: 4055
-            },
-            {
-                name: '科技',
-                value: 2467
-            },
-            {
-                name: '數位',
-                value: 2244
-            },
-            {
-                name: '公司',
-                value: 3386
-            },
-            {
-                name: '客戶',
-                value: 2055
-            },
-            {
-                name: '合作',
-                value: 1467
-            },
-            {
-                name: '資訊',
-                value: 6244
-            },
-            {
-                name: '行銷',
-                value: 1898
-            },
-            {
-                name: '富蘭克林',
-                value: 1484
-            },
-            {
-                name: '投資組合',
-                value: 1112
-            },
-            {
-                name: '優勢',
-                value: 965
-            },
-            {
-                name: '媒體',
-                value: 847
-            },
-            {
-                name: '環境',
-                value: 582
-            },
-            {
-                name: '台灣',
-                value: 555
-            },
-            {
-                name: '防疫',
-                value: 550
-            },
-            {
-                name: '酒廠',
-                value: 462
-            },
-            {
-                name: 'Facebook',
-                value: 366
-            },
-            {
-                name: '調酒',
-                value: 360
-            },
-            {
-                name: '推動',
-                value: 282
-            },
-            {
-                name: '機會',
-                value: 273
-            },
-            {
-                name: '跨界',
-                value: 265
-            }
-        ]
+        data: new_word_data
     } ]
 };
 
-chart2_1.setOption(option2_1);
+chart4.setOption(option4);
 
-window.onresize = chart2_1.resize;
+window.onresize = chart4.resize;

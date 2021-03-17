@@ -107,8 +107,8 @@ nav .nav_list ul li a {
    	transition: all 0.3s ease-in-out;
 }
 .active{
-	background-color: rgba(0,0,0,.5);
-	color: #000;
+	background-color: rgba(0,0,0,.5) !important;
+	color: #000 !important;
 }
 .dropdown div a{
 	letter-spacing: 1px !important;
@@ -122,6 +122,8 @@ ul li{
 ul li:hover div.dropdown{
 	display: block;
 }
+
+
 .burger{
 	display: none;
 	cursor: pointer;
@@ -168,6 +170,7 @@ ul li:hover div.dropdown{
 
 .profile_container img {
   width: 35px;
+  height: 35px;
   border-radius: 50px;
   float: left;
 }
@@ -251,7 +254,7 @@ ul li:hover div.dropdown{
 	grid-column-start: 1;
 	grid-column-end: 6;
 	display: flex;
-	justify-content: space-around;
+	justify-content: flex-start;
 	align-items: center;
 	padding-bottom: 0 !important;
 }
@@ -267,29 +270,33 @@ ul li:hover div.dropdown{
 	grid-column-end: 3;
 }
 .main_container .Content:nth-child(4){
-	/*background-color: lightblue;*/
-	grid-row-start: 4;
-	grid-row-end: 6;
-	grid-column-start: 1;
-	grid-column-end: 3;
-
-}
-.main_container .Content:nth-child(5){
 	/*background-color: orange;*/
 	grid-row-start: 3;
 	grid-row-end: 4;
 	grid-column-start: 3;
 	grid-column-end: 6;
 }
-/*		.main_container .Content:nth-child(6){
-	background-color: lightyellow
-}*/
+.main_container .Content:nth-child(5){
+	/*background-color: lightblue;*/
+	grid-row-start: 4;
+	grid-row-end: 5;
+	grid-column-start: 1;
+	grid-column-end: 3;
+
+}
 .main_container .Content:nth-child(6){
 	/*background-color: pink;*/
 	grid-row-start: 4;
-	grid-row-end: 6;
+	grid-row-end: 5;
 	grid-column-start: 3;
 	grid-column-end: 6;
+}
+.main_container .Content:nth-child(7){
+	/*background-color: pink;*/
+	grid-row-start: 5;
+	grid-row-end: 6;
+	grid-column-start: 1;
+	grid-column-end: 3;
 }
 .Footer{
 	background-color: black;
@@ -308,17 +315,27 @@ ul li:hover div.dropdown{
 }
 .graph1{
 	width: 90%;
-	height: 32vh;
+	height: 28vh;
 	/*background-color: #fff;*/
 	/*margin-top: 30px;*/
 	margin: 10px auto;
 }
+.graph_container{
+	position: relative;
+}
+
+.g_select_container{
+	position: absolute;
+	left: 4%;
+	top: -10%;
+}
+
 .graph2{
-	/*width: 90%;*/
-	height: 32vh;
+	width: 90%;
+	height: 28vh;
 	/*background-color: #fff;*/
 	/*margin-top: 30px;*/
-	/*margin: 10px auto;*/
+	margin: 10px auto;
 }
 .graph3{
 	width: 90%;
@@ -326,15 +343,24 @@ ul li:hover div.dropdown{
 	/*background-color: #fff;*/
 	/*margin-top: 30px;*/
 	margin: 0px auto;
-	margin-top: 2vh;
+	margin-top: 5vh;
 }
-.graph5{
+.graph3:nth-child(2){
+	height: 28vh;
+}
+.graph3_container{
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	position: relative;
+
+}
+.graph4{
 	width: 90%;
 	height: 30vh;
 	/*background-color: #fff;*/
 	/*margin-top: 30px;*/
 	margin: 10px auto;
-	margin-top: -4vh;
+	/*margin-top: -4vh;*/
 }
 .card2_graph1{
 	width: 90%;
@@ -451,7 +477,7 @@ ul li:hover div.dropdown{
 	justify-content: center;
 	align-items: center;
 	width: 40vw;
-	display: none
+	/*display: none*/
 }
 .select_text{
 	margin: 10px;
@@ -516,6 +542,7 @@ ul li:hover div.dropdown{
 	align-items: center;
 	width: 50vw;
 	max-width: 450px;
+	display: none
 
 }
 .logo_container{

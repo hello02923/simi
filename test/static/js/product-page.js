@@ -27,7 +27,7 @@ $('.owl-carousel').owlCarousel({
       margin: 0,
       nav: false,
       autoplay:true,
-      autoplayTimeout:4000,
+      autoplayTimeout:10000,
       autoplaySpeed:1000,
       autoplayHoverPause: true,
       // slideTransition: 'linear',

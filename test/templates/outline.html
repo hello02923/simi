@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>消費者輪廓模組</title>
+	<meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+	<link rel="stylesheet" type="text/css" href="./../static/css/outline.css">
+</head>
+<body>
+	<!-- nav -->
+	<nav class="navbar smart-scroll">
+		<div class="nav_container">
+			<div class="logo_container">
+				<div class="logo_img"></div>
+				<div class="logo_text">
+					<p>圖靈洞察</p>
+					<p>Turing Insight</p>
+				</div>
+			</div>
+			<!-- rwd -->
+			<!-- <div class="burger"> -->
+				<div class="menu-btn">
+				  <div class="menu-btn__burger"></div>
+				</div>
+			<!-- </div> -->
+			<div class="nav_list">
+				<ul>
+					<li><a>選擇模組 ↓ </a>
+						<div class="dropdown">
+						  <div><a href="index.html">熱度趨勢分析</a></div>
+						  <div><a href="kol.html">意見領袖挖掘</a></div>
+						  <div class="active"><a href="outline.html">消費者輪廓</a></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="menu_list">
+			<ul>
+				<li><a href="#product">Product</a></li>
+				<li><a href="#research_project">Research Project</a></li>
+				<li><a href="#honors_and_awards">Honor & Award</a></li>
+				<li><a href="#team">Team</a></li>
+				<li class="ins_icon" onclick="window.open('https://www.instagram.com/turing_insight_lab/')">
+					<div class="ins_icon_black"></div>
+				</li>
+			</ul>
+		</div>
+		<div class="profile_container">
+			<a class="button" href="#">
+		  		<img src="https://pbs.twimg.com/profile_images/378800000639740507/fc0aaad744734cd1dbc8aeb3d51f8729_400x400.jpeg">
+		  		<div class="logout">LOGOUT</div>
+			</a>
+		</div>
+	</nav>
+	<div class="main_container">
+		<div class="container nav"></div>
+		<div class="container header">
+			<div class="select_container">
+				<div class="select_text">請選擇社群平台:</div>
+                <select class="select">
+                    <option>葡萄酒</option>
+                    <option>威士忌</option>
+                    <option>伏特加</option>
+                    <option>啤酒</option>
+                    <option>清酒</option>
+                </select>
+			</div>
+			<div class="search_container">
+				<div class="input-field">
+				    <input type="" placeholder="Search" />
+				</div>
+				<input type="submit" value="Search" class="btn solid" />
+			</div>
+		</div>
+		<div class="container Content">
+			<div class="g_title">消費者男女比例</div>
+			<div class="graph_container">
+				<div class="graph1">
+					<div id="chart1" style="height: 100%"></div>
+				</div>
+			</div>
+		</div>
+		<div class="container Content">
+			<div class="g_title">消費酒類等級</div>
+			<div class="graph_container">
+				<div class="graph2">
+					<div id="chart2" style="height: 100%"></div>
+				</div>
+			</div>
+		</div>
+		<div class="container Content">
+			<div class="g_title">消費習慣</div>
+			<div class="graph_container">
+				<div class="graph3">
+					<div id="chart3" style="height: 100%"></div>
+				</div>
+			</div>
+		</div>
+		<div class="container Content">
+			<div class="g_title">消費者居住縣市分佈</div>
+			<div class="graph_container">
+				<div class="graph4">
+					<div id="chart4" style="height: 100%"></div>
+				</div>
+			</div>
+		</div>
+		<div class="container Content">
+			<div class="g_title">消費者年齡層</div>
+			<div class="graph_container">
+                <div class="graph5">
+                    <div id="chart5" style="height: 100%"></div>
+                </div>
+			</div>
+		</div>
+	</div>
+
+	<!-- <script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js'></script> -->
+	<!-- <script src="./../static/js/echarts-wordcloud/dist/echarts-wordcloud.js" type="text/javascript"></script> -->
+	<!-- wordcloud chart -->
+	<!-- <script src="./../static/js/echarts-charts/wordcloud-chart.js" type="text/javascript"></script> -->
+	<script src='https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js'></script>
+	<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+
+
+	<script type="text/javascript">
+	var data = {
+    "葡萄酒": {
+        "消費者男女比": {
+            "male": 57.06,
+            "female": 42.94
+        },
+        "消費酒類等級": {
+            "貴族級": 75.51,
+            "小資級": 24.49
+        },
+        "消費習慣": {
+            "爆發型": 30.59,
+            "穩定消費型": 69.41
+        },
+        "消費者居住縣市分佈": {
+            "台北市": 30.58,
+            "新北市": 19.63,
+            "桃園市": 18.88,
+            "台中市": 13.76,
+            "台南市": 13.55,
+            "高雄市": 3.6
+        },
+        "消費者年齡層": {
+            "18~25": 7.44,
+            "26~35": 18.84,
+            "36~45": 32.57,
+            "46~55": 30.32,
+            "56~65": 10.65,
+            "66以上": 0.19
+        }
+    },
+    "威士忌": {
+        "消費者男女比": {
+            "male": 75.27,
+            "female": 24.73
+        },
+        "消費酒類等級": {
+            "貴族級": 84.82,
+            "小資級": 15.18
+        },
+        "消費習慣": {
+            "爆發型": 77.14,
+            "穩定消費型": 22.86
+        },
+        "消費者居住縣市分佈": {
+            "台北市": 34.59,
+            "新北市": 33.6,
+            "桃園市": 15.59,
+            "台中市": 9.45,
+            "台南市": 5.61,
+            "高雄市": 1.17
+        },
+        "消費者年齡層": {
+            "18~25": 3.16,
+            "26~35": 6.61,
+            "36~45": 42.22,
+            "46~55": 40.73,
+            "56~65": 6.56,
+            "66以上": 0.72
+        }
+    },
+    "伏特加": {
+        "消費者男女比": {
+            "male": 74.64,
+            "female": 25.36
+        },
+        "消費酒類等級": {
+            "貴族級": 80.19,
+            "小資級": 19.81
+        },
+        "消費習慣": {
+            "爆發型": 68.1,
+            "穩定消費型": 31.9
+        },
+        "消費者居住縣市分佈": {
+            "台北市": 53.98,
+            "新北市": 17.46,
+            "桃園市": 11.46,
+            "台中市": 8.91,
+            "台南市": 5.8,
+            "高雄市": 2.4
+        },
+        "消費者年齡層": {
+            "18~25": 10.67,
+            "26~35": 16.24,
+            "36~45": 38.12,
+            "46~55": 18.42,
+            "56~65": 15.07,
+            "66以上": 1.48
+        }
+    },
+    "啤酒": {
+        "消費者男女比": {
+            "male": 47.52,
+            "female": 52.48
+        },
+        "消費酒類等級": {
+            "貴族級": 32.82,
+            "小資級": 67.18
+        },
+        "消費習慣": {
+            "爆發型": 53.06,
+            "穩定消費型": 46.94
+        },
+        "消費者居住縣市分佈": {
+            "台北市": 34.66,
+            "新北市": 24.28,
+            "桃園市": 15.37,
+            "台中市": 12.21,
+            "台南市": 8.11,
+            "高雄市": 5.37
+        },
+        "消費者年齡層": {
+            "18~25": 10.12,
+            "26~35": 16.02,
+            "36~45": 43.79,
+            "46~55": 17.78,
+            "56~65": 10.54,
+            "66以上": 1.76
+        }
+    },
+    "清酒": {
+        "消費者男女比": {
+            "male": 31.1,
+            "female": 68.9
+        },
+        "消費酒類等級": {
+            "貴族級": 69.52,
+            "小資級": 30.48
+        },
+        "消費習慣": {
+            "爆發型": 10.86,
+            "穩定消費型": 89.14
+        },
+        "消費者居住縣市分佈": {
+            "台北市": 44.16,
+            "新北市": 29.59,
+            "桃園市": 13.41,
+            "台中市": 8.39,
+            "台南市": 4.15,
+            "高雄市": 0.31
+        },
+        "消費者年齡層": {
+            "18~25": 8.13,
+            "26~35": 17.03,
+            "36~45": 33.33,
+            "46~55": 23.28,
+            "56~65": 15.33,
+            "66以上": 2.9
+        }
+    }
+}
+
+$(document).ready(function(){
+    getChart1Data(option,'葡萄酒')
+    getChart2Data(option,'葡萄酒')
+    getChart3Data(option,'葡萄酒')
+    getChart4Data(option,'葡萄酒')
+    getChart5Data(option,'葡萄酒')
+})
+
+$( ".select" ).change(function() {
+    $(".select").find(":selected").each(function() {
+        getChart1Data(option,this.value)
+        getChart2Data(option,this.value)
+        getChart3Data(option,this.value)
+        getChart4Data(option,this.value)
+        getChart5Data(option,this.value)
+    })
+})
+
+var option = {
+    tooltip: {
+        trigger: 'item'
+    },
+    legend: {
+        top: '0%',
+        left: 'center'
+    },
+    series: [
+        {
+            name: '消費者男女比例',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderRadius: 10,
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    fontSize: '16',
+                    fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: []
+        }
+    ]
+};
+
+//chart1
+function getChart1Data(option,al_type){
+    var chartDom = document.getElementById('chart1');
+    var myChart = echarts.init(chartDom);
+     window.addEventListener('resize', ()=> {
+    	// myChart.resize()
+    	echarts.init(document.getElementById('chart1')).resize()
+    })
+
+    var graph1_data = [
+    	{value: data[al_type]["消費者男女比"]['female'] , name: '女生比例'},
+        {value: data[al_type]["消費者男女比"]['male'] , name: '男生比例'},
+        
+    ]
+    delete option.series[0].color;
+    option.series[0].data = graph1_data
+    if (option && typeof option === 'object') {
+        myChart.setOption(option);
+    }
+}
+
+//chart2
+function getChart2Data(option,al_type){
+    var chartDom = document.getElementById('chart2');
+    var myChart = echarts.init(chartDom);
+    var option;
+     window.addEventListener('resize', ()=> {
+    	// myChart.resize()
+    	echarts.init(document.getElementById('chart2')).resize()
+    })
+    var graph2_data = [
+    	{value: data[al_type]["消費酒類等級"]['貴族級'] , name: '貴族級'},
+        {value: data[al_type]["消費酒類等級"]['小資級'] , name: '小資級'},
+        
+    ]
+    option.series[0].name = '消費酒類等級'
+    option.series[0].data = graph2_data
+    option.series[0].color = ['#ED7C30','#4472C5']
+
+    if (option && typeof option === 'object') {
+        myChart.setOption(option);
+    }
+}
+
+//chart3
+function getChart3Data(option,al_type){
+    var chartDom = document.getElementById('chart3');
+    var myChart = echarts.init(chartDom);
+     window.addEventListener('resize', ()=> {
+        // myChart.resize()
+        echarts.init(document.getElementById('chart3')).resize()
+    })
+
+    var data_type = al_type
+    var graph3_data = [
+        {value: data[data_type]["消費習慣"]['爆發型'] , name: '爆發型'},
+        {value: data[data_type]["消費習慣"]['穩定消費型'] , name: '穩定消費型'},
+        
+    ]
+    option.series[0].name = '消費型態'
+    option.series[0].data = graph3_data
+    option.series[0].color = ['#ff6b81','#2ed573']
+
+    if (option && typeof option === 'object') {
+        myChart.setOption(option);
+    }
+}
+
+//chart4
+function getChart4Data(option,al_type){
+    console.log(1)
+    var chartDom = document.getElementById('chart4');
+    var myChart = echarts.init(chartDom);
+     window.addEventListener('resize', ()=> {
+        // myChart.resize()
+        echarts.init(document.getElementById('chart4')).resize()
+    })
+    var graph4_data = [];
+    for (key in data[al_type]['消費者居住縣市分佈']){
+        graph4_data.push({value: data[al_type]['消費者居住縣市分佈'][key] , name: key},)
+    }
+    // console.log(graph4_data)
+
+    option.series[0].data = graph4_data
+    option.series[0].name = '居住縣市'
+    delete option.series[0].color;
+    // option.series[0].color = ['#ff6b81','#2ed573']
+
+    if (option && typeof option === 'object') {
+        myChart.setOption(option);
+    }
+}
+
+//chart5
+
+function getChart5Data(option,al_type){
+    var chartDom = document.getElementById('chart5');
+    var myChart = echarts.init(chartDom);
+    // var option;
+     window.addEventListener('resize', ()=> {
+        // myChart.resize()
+        echarts.init(document.getElementById('chart5')).resize()
+    })
+    var graph5_data = [];
+
+    for (key in data[al_type]['消費者年齡層']){
+        graph5_data.push({value: data[al_type]['消費者年齡層'][key] , name: key},)
+    }
+    // console.log(graph5_data)
+
+
+    option.series[0].data = graph5_data
+    option.series[0].name = '居住縣市'
+    // delete option.series[0].color;
+    option.series[0].color = ['#F51720','#FA26A0','#F8D210','#18A558','#2FF3E0','#000C66']
+
+    if (option && typeof option === 'object') {
+        myChart.setOption(option);
+    }
+}
+
+
+</script>
+</body>
+</html>
