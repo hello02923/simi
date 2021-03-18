@@ -26,7 +26,7 @@ for (var key in word_data){
     new_word_data.push({name: key,value: parseInt(word_data[key])})
 }
 
-console.log(new_word_data)
+// console.log(new_word_data)
 var option4 = {
     tooltip: {},
     series: [ {

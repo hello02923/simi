@@ -2166,117 +2166,130 @@ var freq_week_data = {
 }
 
 $(document).ready(function(){
-	main1_chart()
+	main1_chart('威士忌')
+    g1_change('威士忌')
 })
 
+// select
+$( ".select" ).change(function() {
+    $(".select").find(":selected").each(function() {
+        // console.log(this.value)
+        main1_chart(this.value)
+        g1_change(this.value)
+    })
+})
 
 // console.log(time_list)
 // console.log(ptt_val)
 
-$( ".g1_select").change(function() {
-    $(".g1_select").find(":selected").each(function() {
-    	// console.log(this.value)
-    	var time_list = []
-    	var dcard_val = []
-    	var ptt_val = []
-    	var fb_val = []
-    	if (this.value == '日') {
-    		for (var i = 0; i < freq_day_data['威士忌']['ptt'].length; i++) {
-    			time_list.push(freq_day_data['威士忌']['ptt'][i]['date'])
+function g1_change(al_type){
+    // console.log(1)
+    $( ".g1_select").change(function() {
+        $(".g1_select").find(":selected").each(function() {
+            // console.log(this.value)
+            var time_list = []
+            var dcard_val = []
+            var ptt_val = []
+            var fb_val = []
+            if (this.value == '日') {
+                for (var i = 0; i < freq_day_data[al_type]['ptt'].length; i++) {
+                    time_list.push(freq_day_data[al_type]['ptt'][i]['date'])
 
-    			dcard_val.push(freq_day_data['威士忌']['dcard'][i]['frequency'])
-    			ptt_val.push(freq_day_data['威士忌']['ptt'][i]['frequency'])
-    			fb_val.push(freq_day_data['威士忌']['facebook'][i]['frequency'])
-    		}
-    	}else if (this.value == '周') {
-    		for (var i = 0; i < freq_week_data['威士忌']['ptt'].length; i++) {
-    			time_list.push(freq_week_data['威士忌']['ptt'][i]['y-w'])
+                    dcard_val.push(freq_day_data[al_type]['dcard'][i]['frequency'])
+                    ptt_val.push(freq_day_data[al_type]['ptt'][i]['frequency'])
+                    fb_val.push(freq_day_data[al_type]['facebook'][i]['frequency'])
+                }
+            }else if (this.value == '週') {
+                for (var i = 0; i < freq_week_data[al_type]['ptt'].length; i++) {
+                    time_list.push(freq_week_data[al_type]['ptt'][i]['y-w'])
 
-    			dcard_val.push(freq_week_data['威士忌']['dcard'][i]['frequency'])
-    			ptt_val.push(freq_week_data['威士忌']['ptt'][i]['frequency'])
-    			fb_val.push(freq_week_data['威士忌']['facebook'][i]['frequency'])
-    		}
-    	}else{
-    		for (var i = 0; i < freq_month_data['威士忌']['ptt'].length; i++) {
-	    		time_list.push(freq_month_data['威士忌']['ptt'][i]['y-m'])
+                    dcard_val.push(freq_week_data[al_type]['dcard'][i]['frequency'])
+                    ptt_val.push(freq_week_data[al_type]['ptt'][i]['frequency'])
+                    fb_val.push(freq_week_data[al_type]['facebook'][i]['frequency'])
+                }
+            }else{
+                for (var i = 0; i < freq_month_data[al_type]['ptt'].length; i++) {
+                    time_list.push(freq_month_data[al_type]['ptt'][i]['y-m'])
 
-	    		dcard_val.push(freq_month_data['威士忌']['dcard'][i]['frequency'])
-	    		ptt_val.push(freq_month_data['威士忌']['ptt'][i]['frequency'])
-	    		fb_val.push(freq_month_data['威士忌']['facebook'][i]['frequency'])
+                    dcard_val.push(freq_month_data[al_type]['dcard'][i]['frequency'])
+                    ptt_val.push(freq_month_data[al_type]['ptt'][i]['frequency'])
+                    fb_val.push(freq_month_data[al_type]['facebook'][i]['frequency'])
 
-	    	}
-    	}   
-    // console.log(fb_val) 
-    var chartDom = document.getElementById('main1');
-    var myChart = echarts.init(chartDom);
-    window.addEventListener('resize', ()=> {
-    	// myChart.resize()
-    	echarts.init(document.getElementById('main1')).resize()
-    })
-    var option;
+                }
+            }   
+        // console.log(fb_val) 
+        var chartDom = document.getElementById('main1');
+        var myChart = echarts.init(chartDom);
+        window.addEventListener('resize', ()=> {
+            // myChart.resize()
+            echarts.init(document.getElementById('main1')).resize()
+        })
+        var option;
 
-    option = {
-        title: {
-            text: ''
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            data: ['facebook', 'dcard', 'ptt']
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: time_list
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [
-            {
-                name: 'facebook',
-                type: 'line',
-                stack: 'Total',
-                data: fb_val
+        option = {
+            title: {
+                text: ''
             },
-            {
-                name: 'dcard',
-                type: 'line',
-                stack: 'Total',
-                data: dcard_val
+            tooltip: {
+                trigger: 'axis'
             },
-            {
-                name: 'ptt',
-                type: 'line',
-                stack: 'Total',
-                data: ptt_val
-            }
-        ]
-    };
-    option && myChart.setOption(option);	
+            legend: {
+                data: ['facebook', 'dcard', 'ptt']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: time_list
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: 'facebook',
+                    type: 'line',
+                    stack: 'Total',
+                    data: fb_val
+                },
+                {
+                    name: 'dcard',
+                    type: 'line',
+                    stack: 'Total',
+                    data: dcard_val
+                },
+                {
+                    name: 'ptt',
+                    type: 'line',
+                    stack: 'Total',
+                    data: ptt_val
+                }
+            ]
+        };
+        option && myChart.setOption(option);    
+        })
     })
-})
+
+}
 
 
-function main1_chart(){
+function main1_chart(al_type){
 	var time_list = []
 	var dcard_val = []
 	var ptt_val = []
 	var fb_val = []
 
-	for (var i = 0; i < freq_day_data['威士忌']['ptt'].length; i++) {
-		time_list.push(freq_day_data['威士忌']['ptt'][i]['date'])
+	for (var i = 0; i < freq_day_data[al_type]['ptt'].length; i++) {
+		time_list.push(freq_day_data[al_type]['ptt'][i]['date'])
 
-		dcard_val.push(freq_day_data['威士忌']['dcard'][i]['frequency'])
-		ptt_val.push(freq_day_data['威士忌']['ptt'][i]['frequency'])
-		fb_val.push(freq_day_data['威士忌']['facebook'][i]['frequency'])
+		dcard_val.push(freq_day_data[al_type]['dcard'][i]['frequency'])
+		ptt_val.push(freq_day_data[al_type]['ptt'][i]['frequency'])
+		fb_val.push(freq_day_data[al_type]['facebook'][i]['frequency'])
 	}
 
 	var chartDom = document.getElementById('main1');
