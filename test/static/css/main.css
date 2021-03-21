@@ -330,6 +330,7 @@ ul li:hover div.dropdown{
 
 .g_select_container{
 	position: absolute;
+	z-index: 999;
 	left: 4%;
 	top: 0;
 }
