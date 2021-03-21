@@ -361,14 +361,21 @@ ul li:hover div.dropdown{
 	margin-top: -2vh;
 
 }
+.graph4_container{
+/*	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	position: relative;*/
+	margin-top: 0vh;
+
+}
 .graph4{
 	width: 90%;
 	height: 80%;
 	/*height: 30vh;*/
 	/*background-color: #fff;*/
 	/*margin-top: 30px;*/
-	margin: 10px auto;
-	/*margin-top: -4vh;*/
+	margin: 0px auto;
+	margin-top: 4vh;
 }
 .graph5{
 	width: 90%;
