@@ -14,7 +14,7 @@ nav{
 	display: flex;
 	justify-content: space-between;
 	/*align-items: center;*/
-	z-index: 99;
+	z-index: 999;
 }
 nav .nav_logo_container{
 	margin: 0 20px;
@@ -330,7 +330,7 @@ ul li:hover div.dropdown{
 
 .g_select_container{
 	position: absolute;
-	z-index: 999;
+	z-index: 99;
 	left: 4%;
 	top: 0;
 }
