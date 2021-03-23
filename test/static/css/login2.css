@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
 * {
   margin: 0;
@@ -7,6 +7,7 @@
 }
 body{
 	/*background-color: #000;*/
+  font-family: 'Architects Daughter', cursive;
 }
 .container{
 	width: 100%;
@@ -126,6 +127,9 @@ form.sign-in-form {
   padding: 0 0.4rem;
   position: relative;
 }
+.input-field-signup {
+  margin-top: 0
+}
 
 .input-field i {
   text-align: center;
@@ -136,6 +140,7 @@ form.sign-in-form {
 }
 
 .input-field input {
+  font-family: 'Architects Daughter', cursive;
   background: none;
   outline: none;
   border: none;
@@ -167,8 +172,8 @@ form.sign-in-form {
 }
 
 .social-icon {
-  height: 46px;
-  width: 46px;
+  height: 35px;
+  width: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -187,6 +192,7 @@ form.sign-in-form {
 }
 
 .btn {
+  font-family: 'Architects Daughter', cursive;
 	width: 100px;
 	background-color: #5995fd;
 	border: none;
@@ -228,6 +234,37 @@ form.sign-in-form {
 .submit_container a:hover{
 	color: #2143ff;
 }
+
+.signup_container,.signin_container{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 5rem;
+}
+
+.signup_container button{
+  margin-left: 0; 
+  background-color: #1ee372
+}
+
+.signin_container button{
+  margin-left: 0; 
+  
+}
+
+.signup_submit input{
+ background-color: #1ee372
+}
+
+.signup_submit input:hover,.signup_container button:hover{
+ background-color: #24c167
+}
+
+
+
+
 
 
 
