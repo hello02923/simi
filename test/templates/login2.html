@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login page</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="./../static/css/login2.css">
+	<script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"
+            ></script>
+</head>
+<body>
+	<section class="container container_bg" id="particles-js"></section>
+	<section class="wrapper">
+		<div class="login_container">
+			<div class="form_container">
+			    <div class="signin-signup">
+			        <form action="#" class="sign-in-form animate__animated animate__fadeInDown">
+			            <h2 class="title">Sign in</h2>
+			            <div class="input-field">
+			                <i class="fas fa-user"></i>
+			                <input type="text" placeholder="Username" />
+			            </div>
+			            <div class="input-field">
+			                <i class="fas fa-lock"></i>
+			                <input type="password" placeholder="Password" />
+			            </div>
+			            <div class="submit_container">
+			            	<input type="submit" value="Login" class="btn solid" />
+			            	<a href="forget-pass.html">
+			            		<div class="forgot social-text">Forgot password?</div>
+			            	</a>
+			        	</div>
+			            <p class="social-text">Or Sign in with social platforms</p>
+			            <div class="social-media">
+			                <a href="#" class="social-icon">
+			                <i class="fab fa-facebook-f"></i>
+			                </a>
+			                <a href="#" class="social-icon">
+			                <i class="fab fa-twitter"></i>
+			                </a>
+			                <a href="#" class="social-icon">
+			                <i class="fab fa-google"></i>
+			                </a>
+			                <a href="#" class="social-icon">
+			                <i class="fab fa-linkedin-in"></i>
+			                </a>
+			            </div>
+			        </form>
+			    </div>
+			</div>
+			<div class="logo_container">
+				<div class="logo_png"></div>
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+	<!-- <script src="./../static/js/particles.js-master/particles.js"></script> -->
+	<script type="text/javascript">
+		// particle.js
+		particlesJS.load('particles-js', 'particlesjs-config.json', function() {
+		  console.log('callback - particles.js config loaded');
+		});
+	</script>
+</body>
+</html>
