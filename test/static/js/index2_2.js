@@ -384,10 +384,6 @@ function main3_2Charts(al_type,time_range){
         tooltip: {
             trigger: 'item'
         },
-        legend: {
-            // orient: 'vertical',
-            bottom: 0,
-        },
         series: [
             {
                 name: 'Ptt',

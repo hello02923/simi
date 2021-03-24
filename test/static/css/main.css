@@ -351,10 +351,10 @@ ul li:hover div.dropdown{
 	margin: 0px auto;
 	margin-top: 5vh;
 }
-.graph3:nth-child(2){
-	/*height: 28vh;*/
+/*.graph3:nth-child(2){
+	height: 28vh;
 	height: 80%;
-}
+}*/
 .graph3_container{
 	display: grid;
 	grid-template-columns: repeat(3,1fr);
