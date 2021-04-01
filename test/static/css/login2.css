@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +6,15 @@
 }
 body{
 	/*background-color: #000;*/
-  font-family: 'Architects Daughter', cursive;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    /*-webkit-text-fill-color: #D8CB86;*/
+    -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0) inset;
+    transition: background-color 5000s ease-in-out 0s;
 }
 .container{
 	width: 100%;
@@ -60,7 +67,7 @@ body{
 .logo_png{
   background-image: url('./../img/logo.png');
   background-size: 80%;
-  background-position: center;
+  background-position: left;
   background-repeat: no-repeat;
   height: 35vw;
   width: 100%;
@@ -140,7 +147,7 @@ form.sign-in-form {
 }
 
 .input-field input {
-  font-family: 'Architects Daughter', cursive;
+  font-family: 'Noto Sans TC', sans-serif;
   background: none;
   outline: none;
   border: none;
@@ -192,7 +199,7 @@ form.sign-in-form {
 }
 
 .btn {
-  font-family: 'Architects Daughter', cursive;
+  font-family: 'Noto Sans TC', sans-serif;
 	width: 100px;
 	background-color: #5995fd;
 	border: none;
@@ -232,7 +239,7 @@ form.sign-in-form {
 }
 
 .submit_container a:hover{
-	color: #2143ff;
+	color: #5995fd;
 }
 
 .signup_container,.signin_container{
@@ -249,10 +256,6 @@ form.sign-in-form {
   background-color: #1ee372
 }
 
-.signin_container button{
-  margin-left: 0; 
-  
-}
 
 .signup_submit input{
  background-color: #1ee372

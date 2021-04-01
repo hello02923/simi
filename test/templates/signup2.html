@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>signup page</title>
+	<title>註冊 - Simi</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="./../static/css/login2.css">
+	<link rel="icon" href="./../static/img/logo.png">
 	<link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -19,23 +20,23 @@
 			<div class="form_container">
 			    <div class="signin-signup">
 			        <form action="#" class="sign-in-form">
-			            <h2 class="title">Sign up</h2>
+			            <h2 class="title">註冊</h2>
 			            <div class="input-field input-field-signup">
 			                <i class="fas fa-user"></i>
-			                <input type="text" placeholder="Username" />
+			                <input name="username" type="text" placeholder="用戶名稱" />
 			            </div>
 			            <div class="input-field input-field-signup">
 			                <i class="fas fa-envelope"></i>
-			                <input type="email" placeholder="Email" />
+			                <input name="email" type="email" placeholder="電子郵件" />
 			            </div>
 			            <div class="input-field input-field-signup">
 			                <i class="fas fa-lock"></i>
-			                <input type="password" placeholder="Password" />
+			                <input name="password" type="password" placeholder="密碼" />
 			            </div>
 			            <div class="submit_container signup_submit">
-			            	<input type="submit" value="Sign up" class="btn solid" />
+			            	<input type="submit" value="註冊" class="btn solid" />
 			        	</div>
-			            <p class="social-text">Or Sign up with social platforms</p>
+			            <p class="social-text">從以下社群平台帳號註冊</p>
 			            <div class="social-media">
 			                <a href="#" class="social-icon">
 			                <i class="fab fa-facebook-f"></i>
@@ -55,7 +56,7 @@
 			        <div class="signin_container animate__animated animate__fadeInLeft animate__delay-1s">
 			            <p>已經註冊過帳號？點此進入登入頁面</p>
 			            <button onclick="window.location.href='login2.html'" class="btn transparent" id="login-btn">
-			            LOGIN
+			            登入
 			            </button>
 			        </div>
 			    </div>
