@@ -329,7 +329,7 @@ function main3_1Charts(al_type,time_range){
         // },
         series: [
             {
-                name: 'FB',
+                name: 'Facebook',
                 type: 'pie',
                 radius: ['30%', '60%'],
                 avoidLabelOverlap: false,
@@ -384,13 +384,9 @@ function main3_2Charts(al_type,time_range){
         tooltip: {
             trigger: 'item'
         },
-        legend: {
-            // orient: 'vertical',
-            bottom: 0,
-        },
         series: [
             {
-                name: 'FB',
+                name: 'Ptt',
                 type: 'pie',
                 radius: ['30%', '60%'],
                 avoidLabelOverlap: false,
@@ -451,7 +447,7 @@ function main3_3Charts(al_type,time_range){
         // },
         series: [
             {
-                name: 'FB',
+                name: 'Dcard',
                 type: 'pie',
                 radius: ['30%', '60%'],
                 avoidLabelOverlap: false,
