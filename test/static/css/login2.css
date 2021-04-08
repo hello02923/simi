@@ -328,9 +328,51 @@ form.sign-in-form {
         margin-right: 0;
     }
 
+<<<<<<< HEAD
+}
 
+@media (max-width: 450px) {
+    .form_container{
+        /*margin: 5% 0;*/
+    }
+    .title{
+    font-size: 1.5rem;
+    }
+    .input-field input{
+        padding: 0;
+        height: 25px;
+    }
+    .input-field i{
+        line-height: 25px;
+    }
+    .logo_png{
+        background-size: contain;
+        margin-top: -25%;
+        min-height: unset;
+        max-width: 140px;
+    }
+    .btn{
+        margin: 0;
+        margin-top: 1%;
+    }
+    .social-icon {
+        height: 25px;
+        width: 25px;
+    }
+    .signin_container{
+        margin-top: 0;
+    }
+    .sign-in-form{
+        margin-top: -15%;
+    }
+    .signin_container{
+        margin-top: 10px;
+    }
+=======
 
+>>>>>>> 543bd093d6eaa8fb11db69b825423cc3104fe0e7
 
+}
 
 
 }
