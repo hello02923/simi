@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="./../static/img/logo.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link href="{{url_for('static', filename='css/forget-pass.css')}}" rel="stylesheet" />
+        <title>忘記密碼 - Simi</title>
+    </head>
+    <body>
+        <section class="container container_bg" id="particles-js"></section>
+        <div class="container middle">
+            <div class="logo-container"></div>
+            <div class="forms-container">
+            <div class="signin-signup">
+                <form action="/change-pass" class="sign-up-form animate__animated animate__fadeInDown">
+                    <h2 class="title middle">輸入電子郵件</h2>
+                    <div class="hint">請輸入電子郵件進行驗證來找回密碼</div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input name="email" type="email" placeholder="電子郵件" />
+                    </div>
+                    <div class="submit-container middle">
+                        <input name="submit" type="submit" class="btn" value="送出" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script type="text/javascript">
+        // particle.js
+        particlesJS.load('particles-js', "{{url_for('static', filename='js/particlesjs-config.json')}}", function() {
+          console.log('callback - particles.js config loaded');
+        });
+    </script>
+</html>
