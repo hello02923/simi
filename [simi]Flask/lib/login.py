@@ -28,7 +28,7 @@ def set_protected():
             return response, 200
         else:
             response = jsonify(logged_in_as="please login")
-            return response, 401.1
+            return response, 467
     except Exception as e:
         logging.exception(e)
 
@@ -50,13 +50,13 @@ def set_signup():
 
         if find_action(username):
             response = jsonify({'message' : 'Username has been already created!'})
-            return response, 401.11
+            return response, 468
         elif find_action(email):
             response = jsonify({'message' : 'Email has been already created!'})
-            return response, 401.13
+            return response, 470
         elif data['username'] == data['password']:
             response = jsonify({'message' : 'username and password cannot be same!'})    
-            return response, 401.12
+            return response, 469
         else:
             new_user = {"username": data['username'], 'email': data['email'], 'password':hashed_password}
             insert_action(new_user)
@@ -80,14 +80,14 @@ def set_login():
 
             if not auth or not auth.username or not auth.password:
                 response = jsonify({"msg": "Login field empty!"})
-                return response, 400.1
+                return response, 465
 
             username = {'username':auth.username}
             db_user = find_action(username)
 
             if not db_user:
                 response = jsonify({"msg": "Don't find username!"})
-                return response, 401.11
+                return response, 468
 
             if check_password_hash(db_user['password'], auth.password):
                 access_token = create_access_token(identity=auth.username)
@@ -100,7 +100,7 @@ def set_login():
                 return response, 200
             else:
                 response = jsonify({"msg": "password error"})
-                return response, 401.12
+                return response, 469
 
     except Exception as error:
         logging.exception(error)

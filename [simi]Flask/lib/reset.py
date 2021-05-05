@@ -52,10 +52,10 @@ def set_pwd_request():
         email = body.get('email')
         db_user = find_action({'email':email})
         if not email:
-            return jsonify({'message' : 'Email is empty!'}), 400.1
+            return jsonify({'message' : 'Email is empty!'}), 465
 
         if not db_user:
-            return jsonify({'message' : 'Email is invaild!'}), 401.13
+            return jsonify({'message' : 'Email is invaild!'}), 470
 
         expires = datetime.timedelta(hours=24)
         reset_token = create_access_token(str(db_user['username']), expires_delta=expires)
@@ -121,15 +121,15 @@ def set_reset_pwd():
 
         if password != repeat_password:
             response = jsonify({'message' : 'password is not same!'})
-            return response, 401.12
+            return response, 469
 
         if not reset_token:
             response = jsonify({'message' : 'token invaild!'})
-            return response, 401
+            return response, 466
 
         if not password or not password:
             response = jsonify({'message' : 'password empty!'})
-            return response, 400.1
+            return response, 465
             
         ## json decode take 'sub' as username 
         username = decode_token(reset_token)['sub']

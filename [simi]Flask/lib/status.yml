@@ -3,20 +3,20 @@ responses:
     description: 正確
   400:
     description: 失敗
-  400.1:
+  465:
     description: 缺失
-  401:
+  466:
     description: token相關
-  401.1:
+  467:
     description: 登入失敗
-  401.11:
+  468:
     description: 帳號失敗
-  401.12:
+  469:
     description: 密碼失敗
-  401.13:
+  470:
     description: 信箱失敗
-  401.2:
+  471:
     description: 註冊失敗
-  403.11:
+  472:
     description: 密碼變更
   
