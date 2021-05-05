@@ -1,0 +1,22 @@
+responses:
+  200:
+    description: 正確
+  400:
+    description: 失敗
+  400.1:
+    description: 缺失
+  401:
+    description: token相關
+  401.1:
+    description: 登入失敗
+  401.11:
+    description: 帳號失敗
+  401.12:
+    description: 密碼失敗
+  401.13:
+    description: 信箱失敗
+  401.2:
+    description: 註冊失敗
+  403.11:
+    description: 密碼變更
+  

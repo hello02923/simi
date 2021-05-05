@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+
+## backend
+logging
+datetime
+threading ##
+socket ## get ip
+werkzeug.security
+flask
+flask_mail
+flask_cors
+flask_jwt_extended
+pymongo
+flasgger ## record status code
+## backend
