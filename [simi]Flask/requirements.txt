@@ -1,4 +1,17 @@
 # -*- coding: utf-8 -*-
+## frontend
+Animate.css #animation
+Fontawesome.css #icon
+OwlCarousel2.css # Slideshow effect
+
+jQuery.js #beautify code
+jQuery-ui.min.js #beautify code
+Echarts.js #charts
+Fontawesome.js #icon
+Particles.js #bg
+sweetalert2.js #alert
+OwlCarousel2.js # Slideshow effect
+## frontend
 
 ## backend
 logging
