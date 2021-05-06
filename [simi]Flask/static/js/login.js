@@ -48,16 +48,18 @@ $(document).ready(function() {
                 setTimeout(function() { location.href = index_page; }, 1500);
             }
         });
-        ajax.fail(function(jqXHR, textStatus, errorThrown) {
-            console.log('error! ' + jqXHR + ' - ' + textStatus + ' - ' + errorThrown);
-            console.log(jqXHR)
-            var err = JSON.parse(jqXHR.responseText);
-            Swal.fire({
-                title: 'Error!',
-                text: err['msg'],
-                icon: 'error',
-                confirmButtonText: '確認'
-            })
-        });
+        ajax.fail(
+            function(response, textStatus, errorThrown) {
+                console.log('error! ' + response + ' - ' + textStatus + ' - ' + errorThrown);
+                console.log(response)
+                var err = JSON.parse(response.responseText);
+                console.log(err['status'])
+                Swal.fire({
+                    title: 'Error!',
+                    text: err['msg'],
+                    icon: 'error',
+                    confirmButtonText: '確認'
+                })
+            });
     });
 });
