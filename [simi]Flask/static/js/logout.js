@@ -17,12 +17,9 @@ $('.logout').click(function() {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + getCookie('access_token'));
                 },
                 success: function(resp) {
-                    // alert('Logout Success!' + authHeader); 
-                    // console.log(resp)
                     if (resp['msg']) {
                         delete_cookie('access_token')
                         Swal.fire({
-                            // position: 'top-end',
                             icon: 'success',
                             title: '登出成功，Bye ~',
                             showConfirmButton: false,
@@ -30,20 +27,9 @@ $('.logout').click(function() {
                         })
                         setTimeout(function() { location.href = login_page; }, 1500);
                     }
-                    // alert('goodbye~ '+resp['logged_in_as'])
-
                 },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('error! ' + jqXHR + ' - ' + textStatus + ' - ' + errorThrown);
-                    console.log(jqXHR)
-                    var err = JSON.parse(jqXHR.responseText);
-                    // alert(err['msg']);
-                    Swal.fire({
-                        title: 'Error!',
-                        text: err['msg'],
-                        icon: 'error',
-                        confirmButtonText: '確認'
-                    })
+                error: function(response) {
+                    err_status_code(JSON.parse(response.status))
                 }
             });
         }

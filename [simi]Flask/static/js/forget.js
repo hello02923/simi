@@ -18,23 +18,14 @@ $(document).ready(function() {
             }),
             url: forget_api
         }).done(function(data) { //data有access_token
-            if (data['msg'] == "success send email") {
-                Swal.fire({
-                    // position: 'top-end',
-                    icon: 'success',
-                    title: '傳送成功，請去email查看～',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                setTimeout(function() { location.href = login_page; }, 1500);
-            } else {
-                Swal.fire({
-                    title: 'Error!',
-                    text: '此Email未註冊任何帳號哦～',
-                    icon: 'error',
-                    confirmButtonText: '確認'
-                })
-            }
+            Swal.fire({
+                // position: 'top-end',
+                icon: 'success',
+                title: '傳送成功，請去email查看～',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            setTimeout(function() { location.href = login_page; }, 1500);
         });
         ajax.fail(function(jqXHR, textStatus, errorThrown) {
             console.log('error! ' + jqXHR + ' - ' + textStatus + ' - ' + errorThrown);

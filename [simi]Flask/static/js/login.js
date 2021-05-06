@@ -4,8 +4,6 @@ particlesJS.load('particles-js', "./../static/js/particlesjs-config.json", funct
 });
 
 $(document).ready(function() {
-    // bind the form submit event to our function
-    // console.log('mkefwj')
     $("#loginform").bind('submit', function(e) {
         // prevent page refresh
         e.preventDefault();
@@ -18,48 +16,20 @@ $(document).ready(function() {
             encode: true,
             async: false,
             headers: {
-                "Authorization": "Basic " + btoa(username + ":" + password)
+                "Authorization": "Basic " + btoa(unescape(encodeURIComponent(username + ":" + password)))
             },
             data: {},
             url: login_api
-        }).done(function(data) { //data有access_token
-            if (data['msg'] == 'password error') {
-                Swal.fire({
-                    title: 'Error!',
-                    text: '登入失敗，密碼有誤',
-                    icon: 'error',
-                    confirmButtonText: '確認'
-                })
-            } else if (data['msg'] == 'Don\'t find username!') {
-                Swal.fire({
-                    title: 'Error!',
-                    text: '登入失敗，找不到使用者',
-                    icon: 'error',
-                    confirmButtonText: '確認'
-                })
-            } else {
-                document.cookie = "access_token=" + data['access_token'];
-                Swal.fire({
-                    icon: 'success',
-                    title: '登入成功 ~',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                setTimeout(function() { location.href = index_page; }, 1500);
-            }
+        }).done(function(response) {
+            document.cookie = "access_token=" + response['access_token'];
+            Swal.fire({
+                icon: 'success',
+                title: '登入成功 ~',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            setTimeout(function() { location.href = index_page; }, 1500);
         });
-        ajax.fail(
-            function(response, textStatus, errorThrown) {
-                console.log('error! ' + response + ' - ' + textStatus + ' - ' + errorThrown);
-                console.log(response)
-                var err = JSON.parse(response.responseText);
-                console.log(err['status'])
-                Swal.fire({
-                    title: 'Error!',
-                    text: err['msg'],
-                    icon: 'error',
-                    confirmButtonText: '確認'
-                })
-            });
+        ajax.fail(function(response) { err_status_code(JSON.parse(response.status)) });
     });
 });

@@ -22,26 +22,14 @@ $(document).ready(function() {
             }),
             url: signup_api
         }).done(function(data) { //data有access_token
-            if (data['message'] == "New user created!") {
-                Swal.fire({
-                    icon: 'success',
-                    title: '註冊成功 ~',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                setTimeout(function() { location.href = login_page; }, 1500);
-            }
-        });
-        ajax.fail(function(jqXHR, textStatus, errorThrown) {
-            console.log('error! ' + jqXHR + ' - ' + textStatus + ' - ' + errorThrown);
-            console.log(jqXHR)
-            var err = JSON.parse(jqXHR.responseText);
             Swal.fire({
-                title: 'Error!',
-                text: err['message'],
-                icon: 'error',
-                confirmButtonText: '確認'
+                icon: 'success',
+                title: '註冊成功 ~',
+                showConfirmButton: false,
+                timer: 1500
             })
+            setTimeout(function() { location.href = login_page; }, 1500);
         });
+        ajax.fail(function(response) { err_status_code(JSON.parse(response.status)) });
     });
 });

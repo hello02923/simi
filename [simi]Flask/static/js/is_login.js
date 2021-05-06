@@ -7,35 +7,12 @@ $.ajax({
     },
     success: function(resp) {
         $('.user_info').text('歡迎: ' + resp['logged_in_as'])
-            // alert('Success!' + authHeader); 
-            // if (window.location.href == index_page) {
-            //     Swal.fire({
-            //         title: 'welcome~ ' + resp['logged_in_as'],
-            //         showClass: {
-            //             popup: 'animate__animated animate__fadeInDown'
-            //         },
-            //         hideClass: {
-            //             popup: 'animate__animated animate__fadeOutUp'
-            //         }
-            //     })
-            // } else {
-        console.log(1)
-            // }
     },
-    error: function(jqXHR, textStatus, errorThrown) {
-        console.log('error! ' + jqXHR + ' - ' + textStatus + ' - ' + errorThrown);
-        console.log(jqXHR)
+    error: function(response) {
         window.stop();
-
-        var err = JSON.parse(jqXHR.responseText);
-        Swal.fire({
-            // position: 'top-end',
-            icon: 'error',
-            title: err['msg'],
-            showConfirmButton: false,
-            timer: 1500
-        })
-        setTimeout(function() { location.href = login_page; }, 1500);
+        err_status_code(JSON.parse(response.status))
+        $('.swal2-container.swal2-center.swal2-backdrop-show').css('background', 'gray')
+        setTimeout(function() { location.href = login_page; }, 3500);
     }
 });
 

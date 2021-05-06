@@ -24,28 +24,15 @@ $(document).ready(function() {
                 "reset_token": rt
             }),
             url: reset_api
-        }).done(function(data, Status) { //data有access_token
-            if (data['msg'] == "success send email") {
-                Swal.fire({
-                    // position: 'top-end',
-                    icon: 'success',
-                    title: '密碼重設成功！ 將會回到登入頁面 ~',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                setTimeout(function() { location.href = login_page; }, 1500);
-            }
-        });
-        ajax.fail(function(jqXHR, textStatus, errorThrown) {
-            console.log('error! ' + jqXHR + ' - ' + textStatus + ' - ' + errorThrown);
-            console.log(jqXHR)
-            var err = JSON.parse(jqXHR.responseText);
+        }).done(function(response) {
             Swal.fire({
-                title: 'Error!',
-                text: err['message'],
-                icon: 'error',
-                confirmButtonText: '確認'
+                icon: 'success',
+                title: '密碼重設成功！ 將會回到登入頁面 ~',
+                showConfirmButton: false,
+                timer: 1500
             })
+            setTimeout(function() { location.href = login_page; }, 1500);
         });
+        ajax.fail(function(response) { err_status_code(JSON.parse(response.status)) });
     });
 });

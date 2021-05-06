@@ -1,6 +1,4 @@
 if (getCookie('access_token')) {
-    // alert('您已經登入～')
-    // location.href="/index_page"
     $.ajax({
         url: index_api,
         data: {},
@@ -10,7 +8,6 @@ if (getCookie('access_token')) {
         },
         success: function(resp) {
             Swal.fire({
-                // position: 'top-end',
                 icon: 'success',
                 title: '您已經登入ㄌ ~',
                 showConfirmButton: false,
@@ -18,17 +15,8 @@ if (getCookie('access_token')) {
             })
             setTimeout(function() { location.href = index_page; }, 1500);
         },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.log('error! ' + jqXHR + ' - ' + textStatus + ' - ' + errorThrown);
-            console.log(jqXHR)
-            var err = JSON.parse(jqXHR.responseText);
-            Swal.fire({
-                title: 'Error!',
-                text: err['msg'],
-                icon: 'error',
-                confirmButtonText: '確定',
-                timer: 1500
-            })
+        error: function(response) {
+            err_status_code(JSON.parse(response.status))
             setTimeout(function() {
                 delete_cookie('access_token')
                 location.href = login_page;

@@ -1,3 +1,10 @@
+[20210506 update]
+1. 獨立一個status.js 用來判斷 回傳status code要對應的alert
+2. reset email頁面 input = email 設為必填
+3. 更改部分sweet alert 背景顏色
+4. 應該沒ㄌ 欸嘿(⁎⁍̴̛ᴗ⁍̴̛⁎)
+5. 希望不要有side effect QQ
+
 [資料夾與檔案說明]
 
 
